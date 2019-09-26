@@ -53,9 +53,12 @@ export const Board: React.FC = () => {
     <Container>
       <Column>
         {board.map((row, index) => (
-          <Row>
+          <Row key={index}>
             {row.map((marking, col) => (
-              <Square key={index + col} onClick={() => handleClick(index, col)}>
+              <Square
+                key={`${index + col}`}
+                onClick={() => handleClick(index, col)}
+              >
                 {marking}
               </Square>
             ))}
